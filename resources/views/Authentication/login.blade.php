@@ -20,7 +20,7 @@
                             placeholder="Enter your password" name="email">
                     </div>
 
-                    <div class="text-end">
+                    <div class="text-end font-medium">
                         <a href="">Forget Password?</a>
                     </div>
 
@@ -29,7 +29,7 @@
                     </div>
 
                     <div class="text-center">
-                        <p>Don't have an account? <a href="">Register</a></p>
+                        <p class="font-light">Don't have an account? <a href="" class="font-medium">Register</a></p>
                     </div>
                 </form>
             </div>
