@@ -53,9 +53,15 @@ class AuthenticationController extends Controller
         $isVerify = Auth::attempt($userCredentials);
         if ($isVerify) {
             toastr()->success("Account verified");
+            return redirect()->route("Home");
         } else {
             toastr()->info("Please enter correct credentials");
+            return redirect()->back();
         }
+    }
+
+    public function logOut(){
+        Auth::logout();
         return redirect()->back();
     }
 }
