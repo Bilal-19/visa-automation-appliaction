@@ -7,7 +7,8 @@
             <div class="w-80 md:w-1/2">
                 <h2 class="text-2xl md:text-3xl md:mx-15 mt-15">Sign in to your account</h2>
                 <p class="text-sm md:mx-15 font-light">Welcome back! Please enter your details</p>
-                <form action="" class="md:mx-15 mt-10 space-y-3">
+                <form action="{{route("verify.login")}}" method="post" class="md:mx-15 mt-10 space-y-3">
+                    @csrf
                     <div class="flex flex-col">
                         <label for="email">Email:</label>
                         <input type="email" class="bg-gray-200 text-sm px-3 py-2 rounded-md focus:outline-none placeholder:text-black"
@@ -17,7 +18,7 @@
                     <div class="flex flex-col">
                         <label for="password">Password:</label>
                         <input type="password" class="bg-gray-200 text-sm px-3 py-2 rounded-md focus:outline-none placeholder:text-black"
-                            placeholder="Enter your password" name="email">
+                            placeholder="Enter your password" name="password">
                     </div>
 
                     <div class="text-end font-medium">
