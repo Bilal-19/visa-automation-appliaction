@@ -98,6 +98,9 @@ return new class extends Migration {
             ]);
             $table->string('travelPurpose', 100);
 
+            // Possible values: Pending, Approve & Reject
+            $table->string("status")->default("pending");
+
             // Foreign Key Reference
             $table->unsignedBigInteger('userID');
             $table->foreign('userID')->references('id')->on('users')->onDelete('cascade');

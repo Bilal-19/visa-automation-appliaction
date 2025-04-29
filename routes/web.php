@@ -18,5 +18,6 @@ Route::controller(ApplicantController::class)->group(
     function () {
         Route::get("/", "index")->name("Home");
         Route::get("/apply-for-visa", "applyForVisa")->name("ApplyForVisa");
+        Route::post("/create-applicant", "createApplicant")->name("CreateApplicant");
     }
 );

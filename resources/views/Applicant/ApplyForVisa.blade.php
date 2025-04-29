@@ -29,7 +29,8 @@
         $visaCategories = ['Tourist Visa', 'Student Visa', 'Work Visa', 'Business Visa', 'Transit Visa', 'Family Visa'];
     @endphp
 
-    <form action="" class="w-full px-10" autocomplete="off">
+    <form action="{{route('CreateApplicant')}}" class="w-full px-10" autocomplete="off" method="post" enctype="multipart/form-data">
+        @csrf
         <div class="grid grid-cols-1 md:grid-cols-4 gap-x-10 gap-y-5">
             <div class="flex flex-col">
                 <label for="profilePicture" class="text-sm font-medium text-gray-800">Upload Profile Picture:</label>
