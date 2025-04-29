@@ -17,5 +17,6 @@ Route::controller(AuthenticationController::class)->group(
 Route::controller(ApplicantController::class)->group(
     function () {
         Route::get("/", "index")->name("Home");
+        Route::get("/apply-for-visa", "applyForVisa")->name("ApplyForVisa");
     }
 );

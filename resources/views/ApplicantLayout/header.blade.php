@@ -49,7 +49,7 @@
         </div>
 
         <div class="flex flex-col md:flex-row mx-5 md:m-0 space-x-10 hidden md:block" id="navbar-default">
-            <a href="#" class="hover:underline underline-offset-4 text-md my-1 md:my-0">Apply for Visa</a>
+            <a href="{{route('ApplyForVisa')}}" class="hover:underline underline-offset-4 text-md my-1 md:my-0 {{request()->routeIs('ApplyForVisa') ? 'text-teal-300 underline' : ''}}">Apply for Visa</a>
             <a href="#" class="hover:underline underline-offset-4 text-md my-1 md:my-0">FAQs</a>
             <a href="#" class="hover:underline underline-offset-4 text-md my-1 md:my-0">Contact Us</a>
         </div>
