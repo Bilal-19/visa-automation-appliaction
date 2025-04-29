@@ -55,4 +55,12 @@ class ApplicantController extends Controller
         }
         return redirect()->back();
     }
+
+    public function myApplications()
+    {
+        $fetchApplications = DB::table("applicants")->
+            where("userID", "=", Auth::user()->id)->
+            get();
+        return view("Applicant.MyApplications", with(compact('fetchApplications')));
+    }
 }

@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    @stack("title")
+    @stack('title')
     <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
     {{-- Google fonts --}}
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -49,22 +49,26 @@
         </div>
 
         <div class="flex flex-col md:flex-row mx-5 md:m-0 space-x-5 hidden md:block" id="navbar-default">
-            <a href="{{route('ApplyForVisa')}}" class="hover:underline underline-offset-4 text-md my-1 md:my-0 {{request()->routeIs('ApplyForVisa') ? 'text-teal-300 underline' : ''}}">Apply for Visa</a>
-            <a href="#" class="hover:underline underline-offset-4 text-md my-1 md:my-0">Track Application</a>
+            <a href="{{ route('ApplyForVisa') }}"
+                class="hover:underline underline-offset-4 text-md my-1 md:my-0 {{ request()->routeIs('ApplyForVisa') ? 'text-teal-300 underline' : '' }}">Apply
+                for Visa</a>
+            <a href="{{ route('MyApplications') }}"
+                class="hover:underline underline-offset-4 text-md my-1 md:my-0 {{ request()->routeIs('MyApplications') ? 'text-teal-300 underline' : '' }}">My
+                Applications</a>
             <a href="#" class="hover:underline underline-offset-4 text-md my-1 md:my-0">FAQs</a>
             <a href="#" class="hover:underline underline-offset-4 text-md my-1 md:my-0">Contact Us</a>
         </div>
 
         <div class="mx-5 space-x-4 hidden md:block">
             @if (Auth::check())
-            <a href="{{route("logOut")}}" class="block py-1 px-3 text-gray-900 rounded-sm bg-gray-100">
-                <i class="fa-solid fa-person-walking-arrow-right"></i>
-                Log Out</a>
-        @else
-            <a href="{{route("login")}}" class="block py-1 px-3 text-gray-900 rounded-sm bg-gray-100">
-                <i class="fa-solid fa-right-to-bracket"></i>
-                Log In</a>
-        @endif
+                <a href="{{ route('logOut') }}" class="block py-1 px-3 text-gray-900 rounded-sm bg-gray-100">
+                    <i class="fa-solid fa-person-walking-arrow-right"></i>
+                    Log Out</a>
+            @else
+                <a href="{{ route('login') }}" class="block py-1 px-3 text-gray-900 rounded-sm bg-gray-100">
+                    <i class="fa-solid fa-right-to-bracket"></i>
+                    Log In</a>
+            @endif
         </div>
 
     </div>
