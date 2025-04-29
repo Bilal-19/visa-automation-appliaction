@@ -44,4 +44,48 @@ visaProcess.map((val, key) => {
     `
 })
 
+const visaCategories = [
+    {
+        id: 1,
+        visaName: "Tourist Visa",
+        imgAdd: "images/touristVisa.png"
+    },
+    {
+        id: 2,
+        visaName: "Student Visa",
+        imgAdd: "images/studentVisa.webp"
+    },
+    {
+        id: 3,
+        visaName: "Work Visa",
+        imgAdd: "images/workVisa.png"
+    },
+    {
+        id: 4,
+        visaName: "Business Visa",
+        imgAdd: "images/businessVisa.jpg"
+    },
+    {
+        id: 5,
+        visaName: "Family/Visit Visa",
+        imgAdd: "images/visitVisa.png"
+    },
+    {
+        id: 6,
+        visaName: "Transit Visa",
+        imgAdd: "images/transitVisa.png"
+    }
+]
+
+const visaCategoryEl = document.getElementById("visa-categories")
+
+visaCategories.map((val, key) => {
+    visaCategoryEl.innerHTML +=
+    `
+    <div class="text-center">
+        <img src=${val.imgAdd} alt=${val.visaName} class="h-12 mx-auto mb-2">
+        <h4 class="font-medium text-md">${val.visaName}</h4>
+    </div>
+    `
+})
 

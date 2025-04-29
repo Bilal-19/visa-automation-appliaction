@@ -36,11 +36,10 @@
 </head>
 
 <body>
-    <div
-        class="w-full bg-gray-900 text-white flex flex-col md:flex-row justify-between md:items-center h-fit py-3.5 shadow-md">
+    <div class="w-full bg-gray-900 text-white flex flex-col md:flex-row justify-between md:items-center h-fit py-3.5">
         <div class="flex items-center justify-between ml-2">
             <a href="/">
-                <img src="{{ asset('images/header_logo.png') }}" class="h-16" alt="Ababeel Logo" />
+                <img src="{{ asset('images/header_logo.png') }}" alt="Ababeel Logo" />
             </a>
             <button aria-label="toggle-button"
                 class="sm:block md:hidden mx-5 inline-flex size-10 items-center justify-center transition hover:cursor-pointer bg-white text-[#051527] rounded-md"
