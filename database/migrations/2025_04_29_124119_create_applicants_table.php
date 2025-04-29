@@ -4,8 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
-{
+return new class extends Migration {
     /**
      * Run the migrations.
      */
@@ -13,7 +12,6 @@ return new class extends Migration
     {
         Schema::create('applicants', function (Blueprint $table) {
             $table->id();
-            $table->string('email');
             $table->string('profilePicture');
             $table->string('fullName');
             $table->date('dateOfBirth');
@@ -40,7 +38,6 @@ return new class extends Migration
                 "Pakistani"
             ]);
             $table->enum('gender', ['Male', 'Female']);
-            $table->string('documentNumber');
             $table->enum('passportIssueCountry', [
                 "American",
                 "Canadian",
@@ -67,30 +64,7 @@ return new class extends Migration
             $table->enum('maritalStatus', ['Single', 'Married', 'Common Law']);
             $table->string('phoneNumber');
             $table->string('occupation');
-            $table->string('companyName');
             $table->string('residenceAddress');
-            $table->enum('residenceCountry', [
-                "American",
-                "Canadian",
-                "Chinese",
-                "Japanese",
-                "British",
-                "German",
-                "French",
-                "Italian",
-                "Spanish",
-                "Russian",
-                "Brazilian",
-                "Mexican",
-                "Australian",
-                "South Korean",
-                "Nigerian",
-                "Egyptian",
-                "Turkish",
-                "Indonesian",
-                "Pakistani"
-            ]);
-            $table->enum('migrationStatus', ['Yes', 'No']);
             $table->date('travelDate');
             $table->enum('stateOfEntry', [
                 "American",
@@ -114,7 +88,6 @@ return new class extends Migration
                 "Pakistani"
             ]);
             $table->enum('lengthOfStay', ['Less than 180 days', 'Between 180 days and 4 years', 'Definitive']);
-            $table->enum('haveVisited',['Yes', 'No']);
             $table->enum('visaType', [
                 "Tourist Visa",
                 "Student Visa",
@@ -124,6 +97,10 @@ return new class extends Migration
                 "Family Visa",
             ]);
             $table->string('travelPurpose', 100);
+
+            // Foreign Key Reference
+            $table->unsignedBigInteger('userID');
+            $table->foreign('userID')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });
     }
