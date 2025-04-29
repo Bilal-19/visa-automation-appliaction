@@ -63,4 +63,9 @@ class ApplicantController extends Controller
             get();
         return view("Applicant.MyApplications", with(compact('fetchApplications')));
     }
+
+    public function FAQs()
+    {
+        return view("Applicant.FAQs");
+    }
 }

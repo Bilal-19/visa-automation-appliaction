@@ -5,8 +5,9 @@
 @endpush
 
 @section('main-section')
-    <div class="w-full pt-15 px-10 md:px-20">
-        <h2 class="text-3xl font-medium">Welcome to Ababeel Visa Agency - Your Trusted Visa Assistance Platform</h2>
+    <div class="w-full pt-10 px-10 md:px-20">
+        <h2 class="text-3xl font-medium">Welcome to <span class="text-teal-500">Ababeel Visa Agency</span>.</h2>
+        <h4 class="text-xl text-teal-500">Your Trusted Visa Assistance Platform.</h4>
         <p class="text-lg">Apply. Track. Travel.</p>
         <p class="text-sm font-light">
             Get your visa with ease. Whether you're applying for a tourist, student, work, or business visa, we simplify the
