@@ -32,7 +32,8 @@ Route::controller(AdminController::class)->group(
     function () {
         Route::get("/admin-dashboard", "index")->name("Dashboard");
         Route::get("/visa-applicants", "getApplicants")->name("Visa.Applicants");
-        Route::get("/approve-applicants", "approveVisaApplicant")->name("Visa.ApprovedApplicants");
+        Route::get("/approved-applicants", "approveVisaApplicant")->name("Visa.ApprovedApplicants");
+        Route::get("/rejected-applicants", "getRejectedVisaApplicants")->name("Visa.RejectedApplicants");
         Route::get("/approve-visa-applicantion/{id}", "approvedVisaApplication")->name("Aproved.VisaApplication");
         Route::get("/reject-visa-applicantion/{id}", "rejectVisaApplication")->name("Reject.VisaApplication");
 
