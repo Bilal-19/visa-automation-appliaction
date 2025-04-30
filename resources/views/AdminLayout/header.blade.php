@@ -59,24 +59,24 @@
                     <i class="fa-solid fa-users"></i>
                     <span class="inline">Registered Users</span>
                 </a>
-                <a href="#"
-                    class="flex items-center space-x-2 px-4 py-2 border-b {{ request()->routeIs('#') ? 'bg-white text-black rounded hover:bg-gray-200' : 'text-white' }}">
-                    <i class="fa-solid fa-clock"></i>
+                <a href="{{route("Visa.Applicants")}}"
+                    class="flex items-center space-x-2 px-4 py-2 border-b {{ request()->routeIs('Visa.Applicants') ? 'bg-white text-black rounded hover:bg-gray-200' : 'text-white' }}">
+                    <i class="fa-solid fa-users-between-lines"></i>
                     <span class="inline">Visa Applicants</span>
                 </a>
                 <a href="#"
                     class="flex items-center space-x-2 px-4 py-2 border-b {{ request()->routeIs('#') ? 'bg-white text-black rounded hover:bg-gray-200' : 'text-white' }}">
-                    <i class="fa-solid fa-sack-dollar"></i>
+                    <i class="fa-solid fa-users-line"></i>
                     <span class="inline">Approve Applicants</span>
                 </a>
                 <a href="#"
                     class="flex items-center space-x-2 px-4 py-2 border-b {{ request()->routeIs('#') ? 'bg-white text-black rounded hover:bg-gray-200' : 'text-white' }}">
-                    <i class="fa-solid fa-building-user"></i>
+                    <i class="fa-solid fa-users-slash"></i>
                     <span class="inline">Rejected Applicants</span>
                 </a>
                 <a href="#"
                     class="flex items-center space-x-2 px-4 py-2 border-b {{ request()->routeIs('#') ? 'bg-white text-black rounded hover:bg-gray-200' : 'text-white' }}">
-                    <i class="fa-regular fa-calendar-days"></i>
+                    <i class="fa-solid fa-question"></i>
                     <span class="inline">Customer Enquiries</span>
                 </a>
                 <a href="#"

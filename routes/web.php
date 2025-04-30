@@ -31,6 +31,7 @@ Route::controller(ApplicantController::class)->group(
 Route::controller(AdminController::class)->group(
     function () {
         Route::get("/admin-dashboard", "index")->name("Dashboard");
+        Route::get("/visa-applicants", "getApplicants")->name("Visa.Applicants");
 
     }
 );

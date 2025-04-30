@@ -1,0 +1,37 @@
+@extends('AdminLayout.main')
+
+@section('section')
+    <main class="flex-1 p-6 overflow-x-auto">
+        <div class="w-full mt-5 bg-white rounded p-6">
+            <h2 class="text-xl font-semibold mb-4">Visa Applicants</h2>
+            <div class="overflow-x-auto">
+                <table class="min-w-max md:w-full">
+                    <tr class="border-b border-gray-500 text-sm text-gray-700 text-start">
+                        <th class="p-3 font-medium">Applicant Name</th>
+                        <th class="p-3 font-medium">Nationality</th>
+                        <th class="p-3 font-medium">Travel Date</th>
+                        <th class="p-3 font-medium">Length of Stay</th>
+                        <th class="p-3 font-medium">Action</th>
+                    </tr>
+                    @foreach ($fetchApplicants as $record)
+                        <tr class="border-b border-gray-300 text-xs">
+                            <td class="p-3">{{ $record->fullName }}</td>
+                            <td class="p-3">{{ $record->nationality }}</td>
+                            <td class="p-3">{{ date('d-M-Y', strtotime($record->travelDate)) }}</td>
+                            <td class="p-3">{{ $record->lengthOfStay }}</td>
+                            <td class="p-3 text-center space-x-2">
+                                <a href="" class="text-green-700">
+                                    <i class="fa-solid fa-user-check"></i>
+                                </a>
+                                <a href="" class="text-red-700">
+                                    <i class="fa-solid fa-ban"></i>
+                                </a>
+                            </td>
+                        </tr>
+                    @endforeach
+                </table>
+            </div>
+        </div>
+    </main>
+    </div>
+@endsection
