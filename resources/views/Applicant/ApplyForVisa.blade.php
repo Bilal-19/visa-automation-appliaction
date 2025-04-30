@@ -1,7 +1,7 @@
 @extends('ApplicantLayout.main')
 
 @section('main-section')
-    <h3 class="text-3xl font-medium m-10 text-center">Visa Application Form</h3>
+    <h3 class="text-xl md:text-3xl font-medium m-10 text-center">Visa Application Form</h3>
 
     @php
         $countries = [
@@ -29,9 +29,9 @@
         $visaCategories = ['Tourist Visa', 'Student Visa', 'Work Visa', 'Business Visa', 'Transit Visa', 'Family Visa'];
     @endphp
 
-    <form action="{{route('CreateApplicant')}}" class="w-full px-10" autocomplete="off" method="post" enctype="multipart/form-data">
+    <form action="{{route('CreateApplicant')}}" class="w-80 mx-auto md:w-full md:px-10" autocomplete="off" method="post" enctype="multipart/form-data">
         @csrf
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-x-10 gap-y-5">
+        <div class="grid grid-cols-1 md:grid-cols-4 md:gap-x-10 gap-y-5">
             <div class="flex flex-col">
                 <label for="profilePicture" class="text-sm font-medium text-gray-800">Upload Profile Picture:</label>
                 <input type="file" name="profilePicture" class="border-1 border-gray-400 rounded-md px-2 py-1">
@@ -128,7 +128,7 @@
                     placeholder="Enter your occupation">
             </div>
 
-            <div class="flex flex-col col-span-2">
+            <div class="flex flex-col md:col-span-2">
                 <label for="residenceAddress" class="text-sm font-medium text-gray-800">Residence Address:</label>
                 <input type="text" name="residenceAddress"
                     class="text-sm border-1 border-gray-400 rounded-md px-2 py-1 focus:outline-none"
@@ -174,7 +174,7 @@
                 </select>
             </div>
 
-            <div class="flex flex-col col-span-2">
+            <div class="flex flex-col md:col-span-2">
                 <label for="travelPurpose" class="text-sm font-medium text-gray-800">Travel Purpose:</label>
                 <input type="text" name="travelPurpose"
                     class="text-sm border-1 border-gray-400 rounded-md px-2 py-1 focus:outline-none"
