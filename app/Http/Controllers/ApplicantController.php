@@ -15,7 +15,11 @@ class ApplicantController extends Controller
 
     public function applyForVisa()
     {
-        return view("Applicant.ApplyForVisa");
+        if (Auth::check()) {
+            return view("Applicant.ApplyForVisa");
+        } else {
+            return view("Authentication.login");
+        }
     }
 
     public function createApplicant(Request $request)
@@ -58,10 +62,14 @@ class ApplicantController extends Controller
 
     public function myApplications()
     {
-        $fetchApplications = DB::table("applicants")->
-            where("userID", "=", Auth::user()->id)->
-            get();
-        return view("Applicant.MyApplications", with(compact('fetchApplications')));
+        if (Auth::check()) {
+            $fetchApplications = DB::table("applicants")->
+                where("userID", "=", Auth::user()->id)->
+                get();
+            return view("Applicant.MyApplications", with(compact('fetchApplications')));
+        } else {
+            return view("Authentication.login");
+        }
     }
 
     public function FAQs()
