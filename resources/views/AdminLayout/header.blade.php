@@ -49,8 +49,8 @@
         <aside id="sidebar"
             class="bg-gray-900 text-black w-64 space-y-4 py-6 px-4 absolute md:relative z-10 top-16 left-0 md:top-0 md:flex md:flex-col transform -translate-x-full md:translate-x-0 transition-transform duration-200 ease-in-out h-min-screen">
             <nav class="space-y-9 text-sm">
-                <a href="#"
-                    class="flex items-center space-x-2 px-4 py-2 border-b {{ request()->routeIs('#') ? 'bg-white text-black rounded hover:bg-gray-200' : 'text-white' }}">
+                <a href="{{route("Dashboard")}}"
+                    class="flex items-center space-x-2 px-4 py-2 border-b {{ request()->routeIs("Dashboard") ? 'bg-white text-black rounded hover:bg-gray-200' : 'text-white' }}">
                     <i class="fa-solid fa-house"></i>
                     <span class="inline">Dashboard</span>
                 </a>
