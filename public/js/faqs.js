@@ -64,8 +64,15 @@ allFAQ.map((val, key) => {
     faqEl.innerHTML +=
         `
         <div class="w-3/4 mx-auto my-3 p-5 rounded">
-            <h5 class="text-xl font-medium mb-2 border-b cursor-pointer">${val.id}. ${val.question}</h5>
+            <h5 class="text-xl font-medium mb-2 border-b cursor-pointer toggle">${val.id}. ${val.question}</h5>
             <p class="text-sm font-light">${val.answer}</p>
         </div>
     `
 })
+
+document.querySelectorAll(".toggle").forEach((val, index)=>{
+    val.addEventListener("click",()=>{
+        val.nextElementSibling.classList.toggle("hidden");
+    })
+})
+
