@@ -34,6 +34,7 @@ Route::controller(AdminController::class)->group(
         Route::get("/visa-applicants", "getApplicants")->name("Visa.Applicants");
         Route::get("/approved-applicants", "approveVisaApplicant")->name("Visa.ApprovedApplicants");
         Route::get("/rejected-applicants", "getRejectedVisaApplicants")->name("Visa.RejectedApplicants");
+        Route::get("/customer-enquiries", "getCustomerEnquiries")->name("Customer.Enquiries");
         Route::get("/approve-visa-applicantion/{id}", "approvedVisaApplication")->name("Aproved.VisaApplication");
         Route::get("/reject-visa-applicantion/{id}", "rejectVisaApplication")->name("Reject.VisaApplication");
 

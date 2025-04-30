@@ -15,7 +15,7 @@ class ApplicantSeeder extends Seeder
     public function run(): void
     {
         $faker = Faker::create();
-        for ($i = 0; $i <= 3; $i++) {
+        for ($i = 0; $i <= 30; $i++) {
             DB::table("applicants")->insert([
                 "profilePicture" => $faker->imageUrl(),
                 "fullName" => $faker->name,

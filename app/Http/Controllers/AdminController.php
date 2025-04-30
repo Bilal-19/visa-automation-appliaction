@@ -114,4 +114,17 @@ class AdminController extends Controller
         }
         return view("Admin.RejectedApplicants", with(compact("fetchApplicants")));
     }
+
+    public function getCustomerEnquiries(Request $request)
+    {
+        if ($request->search) {
+            $fetchEnquiries = DB::table("enquiry")->
+                where("name", "like", "%$request->search%")->
+                orWhere("email", "like", "%$request->search%")->
+                get();
+        } else {
+            $fetchEnquiries = DB::table("enquiry")->get();
+        }
+        return view("Admin.CustomerQueries", with(compact("fetchEnquiries")));
+    }
 }

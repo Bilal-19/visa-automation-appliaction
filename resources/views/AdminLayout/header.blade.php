@@ -74,8 +74,8 @@
                     <i class="fa-solid fa-users-slash"></i>
                     <span class="inline">Rejected Applicants</span>
                 </a>
-                <a href="#"
-                    class="flex items-center space-x-2 px-4 py-2 border-b {{ request()->routeIs('#') ? 'bg-white text-black rounded hover:bg-gray-200' : 'text-white' }}">
+                <a href="{{route('Customer.Enquiries')}}"
+                    class="flex items-center space-x-2 px-4 py-2 border-b {{ request()->routeIs('Customer.Enquiries') ? 'bg-white text-black rounded hover:bg-gray-200' : 'text-white' }}">
                     <i class="fa-solid fa-question"></i>
                     <span class="inline">Customer Enquiries</span>
                 </a>
