@@ -64,8 +64,8 @@
                     <i class="fa-solid fa-users-between-lines"></i>
                     <span class="inline">Visa Applicants</span>
                 </a>
-                <a href="#"
-                    class="flex items-center space-x-2 px-4 py-2 border-b {{ request()->routeIs('#') ? 'bg-white text-black rounded hover:bg-gray-200' : 'text-white' }}">
+                <a href="{{route('Visa.ApprovedApplicants')}}"
+                    class="flex items-center space-x-2 px-4 py-2 border-b {{ request()->routeIs('Visa.ApprovedApplicants') ? 'bg-white text-black rounded hover:bg-gray-200' : 'text-white' }}">
                     <i class="fa-solid fa-users-line"></i>
                     <span class="inline">Approve Applicants</span>
                 </a>

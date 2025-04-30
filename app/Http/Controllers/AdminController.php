@@ -76,4 +76,23 @@ class AdminController extends Controller
         }
         return redirect()->back();
     }
+
+    public function approveVisaApplicant(Request $request)
+    {
+        if ($request->search) {
+            $fetchApprovedApplicants = DB::table("applicants")->
+                whereNotIn("status", ["rejected", "pending"])->
+                where("fullName", "like", "%$request->search%")->
+                orWhere("nationality", "like", "%$request->search%")->
+                orWhere("lengthOfStay", "like", "%$request->search%")->
+                orderBy("travelDate")->
+                get();
+        } else {
+            $fetchApprovedApplicants = DB::table("applicants")->
+                orderBy("travelDate")->
+                where("status", "=", "approved")->
+                get();
+        }
+        return view("Admin.ApproveApplicants", with(compact("fetchApprovedApplicants")));
+    }
 }
