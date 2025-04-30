@@ -16,4 +16,18 @@ class AdminController extends Controller
         $fetchApplicants = DB::table("applicants")->get();
         return view("Admin.VisaApplicants", with(compact("fetchApplicants")));
     }
+
+    public function approvedVisaApplication($id)
+    {
+        $update = DB::table("applicants")->
+            where("id", "=", $id)->
+            update([
+                "status" => "approved",
+                "updated_at" => now()
+            ]);
+        if ($update) {
+            toastr()->success("Visa of selected applicant is approved.");
+            return redirect()->back();
+        }
+    }
 }

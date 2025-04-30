@@ -11,6 +11,7 @@
                         <th class="p-3 font-medium">Nationality</th>
                         <th class="p-3 font-medium">Travel Date</th>
                         <th class="p-3 font-medium">Length of Stay</th>
+                        <th class="p-3 font-medium">Status</th>
                         <th class="p-3 font-medium">Action</th>
                     </tr>
                     @foreach ($fetchApplicants as $record)
@@ -19,8 +20,18 @@
                             <td class="p-3">{{ $record->nationality }}</td>
                             <td class="p-3">{{ date('d-M-Y', strtotime($record->travelDate)) }}</td>
                             <td class="p-3">{{ $record->lengthOfStay }}</td>
+                            <td class="p-3 text-center">
+                                @if ($record->status == 'approved')
+                                    <span class="bg-green-800 text-white px-2 rounded-md">Approved</span>
+                                @elseif ($record->status == 'rejected')
+                                    <span class="bg-red-800 text-white px-2 rounded-md">Rejected</span>
+                                @else
+                                <span class="bg-orange-800 text-white px-2 rounded-md">Pending</span>
+                                @endif
+                            </td>
                             <td class="p-3 text-center space-x-2">
-                                <a href="" class="text-green-700">
+                                <a href="{{ route('Aproved.VisaApplication', ['id' => $record->id]) }}"
+                                    class="text-green-700">
                                     <i class="fa-solid fa-user-check"></i>
                                 </a>
                                 <a href="" class="text-red-700">
