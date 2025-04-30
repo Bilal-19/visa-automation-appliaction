@@ -39,6 +39,7 @@
                         </tr>
                     @endforeach
                 </table>
+                <p class="my-5">{{$fetchApprovedApplicants}}</p>
             </div>
         </div>
     </main>

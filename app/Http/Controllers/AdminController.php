@@ -19,11 +19,11 @@ class AdminController extends Controller
                 orWhere("nationality", "like", "%$request->search%")->
                 orWhere("lengthOfStay", "like", "%$request->search%")->
                 orderBy("travelDate")->
-                get();
+                paginate(10);
         } else {
             $fetchApplicants = DB::table("applicants")->
                 orderBy("travelDate")->
-                get();
+                paginate(10);
         }
         return view("Admin.VisaApplicants", with(compact("fetchApplicants")));
     }
@@ -86,12 +86,12 @@ class AdminController extends Controller
                 orWhere("nationality", "like", "%$request->search%")->
                 orWhere("lengthOfStay", "like", "%$request->search%")->
                 orderBy("travelDate")->
-                get();
+                paginate(10);
         } else {
             $fetchApprovedApplicants = DB::table("applicants")->
                 orderBy("travelDate")->
                 where("status", "=", "approved")->
-                get();
+                paginate(10);
         }
         return view("Admin.ApproveApplicants", with(compact("fetchApprovedApplicants")));
     }
@@ -105,12 +105,12 @@ class AdminController extends Controller
                 orWhere("nationality", "like", "%$request->search%")->
                 orWhere("lengthOfStay", "like", "%$request->search%")->
                 orderBy("travelDate")->
-                get();
+                paginate(10);
         } else {
             $fetchApplicants = DB::table("applicants")->
                 orderBy("travelDate")->
                 where("status", "=", "rejected")->
-                get();
+                paginate(10);
         }
         return view("Admin.RejectedApplicants", with(compact("fetchApplicants")));
     }
@@ -121,9 +121,9 @@ class AdminController extends Controller
             $fetchEnquiries = DB::table("enquiry")->
                 where("name", "like", "%$request->search%")->
                 orWhere("email", "like", "%$request->search%")->
-                get();
+                paginate(10);
         } else {
-            $fetchEnquiries = DB::table("enquiry")->get();
+            $fetchEnquiries = DB::table("enquiry")->paginate(10);
         }
         return view("Admin.CustomerQueries", with(compact("fetchEnquiries")));
     }

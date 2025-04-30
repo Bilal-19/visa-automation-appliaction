@@ -29,6 +29,7 @@
                         </tr>
                     @endforeach
                 </table>
+                <p class="my-5">{{$fetchEnquiries}}</p>
             </div>
         </div>
     </main>
