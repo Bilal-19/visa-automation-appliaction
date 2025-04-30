@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ApplicantController;
 use App\Http\Controllers\AuthenticationController;
 use Illuminate\Support\Facades\Route;
@@ -23,6 +24,13 @@ Route::controller(ApplicantController::class)->group(
         Route::get("/faqs", "FAQs")->name("FAQs");
         Route::get("/contact-us", "contactUs")->name("ContactUs");
         Route::post("/create-enquiry", "createEnquiry")->name("CreateEnquiry");
+
+    }
+);
+
+Route::controller(AdminController::class)->group(
+    function () {
+        Route::get("/admin-dashboard", "index")->name("Dashboard");
 
     }
 );
