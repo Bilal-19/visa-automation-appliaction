@@ -21,5 +21,8 @@ Route::controller(ApplicantController::class)->group(
         Route::post("/create-applicant", "createApplicant")->name("CreateApplicant");
         Route::get("/my-applications", "myApplications")->name("MyApplications");
         Route::get("/faqs", "FAQs")->name("FAQs");
+        Route::get("/contact-us", "contactUs")->name("ContactUs");
+        Route::post("/create-enquiry", "createEnquiry")->name("CreateEnquiry");
+
     }
 );

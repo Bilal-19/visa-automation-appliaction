@@ -56,7 +56,7 @@
                 class="hover:underline underline-offset-4 text-md my-1 md:my-0 {{ request()->routeIs('MyApplications') ? 'text-teal-300 underline' : '' }}">My
                 Applications</a>
             <a href="{{route('FAQs')}}" class="hover:underline underline-offset-4 text-md my-1 md:my-0 {{request()->routeIs('FAQs') ? 'text-teal-300 underline' : ''}}">FAQs</a>
-            <a href="#" class="hover:underline underline-offset-4 text-md my-1 md:my-0">Contact Us</a>
+            <a href="{{route("ContactUs")}}" class="hover:underline underline-offset-4 text-md my-1 md:my-0 {{request()->routeIs("ContactUs") ? 'text-teal-300 underline': ''}}">Contact Us</a>
         </div>
 
         <div class="mx-5 space-x-4 hidden md:block">

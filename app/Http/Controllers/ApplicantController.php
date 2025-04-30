@@ -76,4 +76,26 @@ class ApplicantController extends Controller
     {
         return view("Applicant.FAQs");
     }
+
+    public function contactUs()
+    {
+        return view("Applicant.ContactUs");
+    }
+
+    public function createEnquiry(Request $request)
+    {
+        $isCreated = DB::table("enquiry")->insert([
+            "name" => $request->userName,
+            "email" => $request->userEmail,
+            "message" => $request->userMessage,
+            "created_at" => now()
+        ]);
+
+        if ($isCreated) {
+            toastr()->success("We've received your query. Our team will contact you soon.");
+        } else {
+            toastr()->info("Something went wrong. Please try again later.");
+        }
+        return redirect()->back();
+    }
 }
