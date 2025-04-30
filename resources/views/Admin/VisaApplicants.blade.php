@@ -3,7 +3,12 @@
 @section('section')
     <main class="flex-1 p-6 overflow-x-auto">
         <div class="w-full mt-5 bg-white rounded p-6">
-            <h2 class="text-xl font-semibold mb-4">Visa Applicants</h2>
+            <h2 class="text-xl font-semibold">Visa Applicants</h2>
+            <p class="text-sm text-gray-700 mb-4">{{count($fetchApplicants)}} records found</p>
+            <form action="{{route('Visa.Applicants')}}" method="get" class="w-full text-sm border flex flex-row space-x-2" autocomplete="off">
+                <input type="search" class="w-4/5 border border-gray-500 py-1 px-3 rounded-md focus:outline-none" placeholder="Search by applicant name, nationality or length of stay" name="search">
+                <button class="bg-gray-900 text-white rounded-md w-1/5"><i class="fa-solid fa-magnifying-glass"></i> Search</button>
+            </form>
             <div class="overflow-x-auto">
                 <table class="min-w-max md:w-full">
                     <tr class="border-b border-gray-500 text-sm text-gray-700 text-start">

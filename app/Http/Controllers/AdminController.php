@@ -11,9 +11,20 @@ class AdminController extends Controller
         return view("Admin.Dashboard");
     }
 
-    public function getApplicants()
+    public function getApplicants(Request $request)
     {
-        $fetchApplicants = DB::table("applicants")->get();
+        if ($request->search) {
+            $fetchApplicants = DB::table("applicants")->
+                where("fullName", "like", "%$request->search%")->
+                orWhere("nationality", "like", "%$request->search%")->
+                orWhere("lengthOfStay", "like", "%$request->search%")->
+                orderBy("travelDate")->
+                get();
+        } else {
+            $fetchApplicants = DB::table("applicants")->
+                orderBy("travelDate")->
+                get();
+        }
         return view("Admin.VisaApplicants", with(compact("fetchApplicants")));
     }
 
