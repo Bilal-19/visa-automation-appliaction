@@ -4,10 +4,13 @@
     <main class="flex-1 p-6 overflow-x-auto">
         <div class="w-full mt-5 bg-white rounded p-6">
             <h2 class="text-xl font-semibold">Visa Applicants</h2>
-            <p class="text-sm text-gray-700 mb-4">{{count($fetchApplicants)}} records found</p>
-            <form action="{{route('Visa.Applicants')}}" method="get" class="w-full text-sm border flex flex-row space-x-2" autocomplete="off">
-                <input type="search" class="w-4/5 border border-gray-500 py-1 px-3 rounded-md focus:outline-none" placeholder="Search by applicant name, nationality or length of stay" name="search">
-                <button class="bg-gray-900 text-white rounded-md w-1/5"><i class="fa-solid fa-magnifying-glass"></i> Search</button>
+            <p class="text-sm text-gray-700 mb-4">{{ count($fetchApplicants) }} records found</p>
+            <form action="{{ route('Visa.Applicants') }}" method="get" class="w-full text-sm border flex flex-row space-x-2"
+                autocomplete="off">
+                <input type="search" class="w-4/5 border border-gray-500 py-1 px-3 rounded-md focus:outline-none"
+                    placeholder="Search by applicant name, nationality or length of stay" name="search">
+                <button class="bg-gray-900 text-white rounded-md w-1/5"><i class="fa-solid fa-magnifying-glass"></i>
+                    Search</button>
             </form>
             <div class="overflow-x-auto">
                 <table class="min-w-max md:w-full">
@@ -31,7 +34,7 @@
                                 @elseif ($record->status == 'rejected')
                                     <span class="bg-red-800 text-white px-2 rounded-md">Rejected</span>
                                 @else
-                                <span class="bg-orange-800 text-white px-2 rounded-md">Pending</span>
+                                    <span class="bg-orange-800 text-white px-2 rounded-md">Pending</span>
                                 @endif
                             </td>
                             <td class="p-3 text-center space-x-2">
@@ -39,7 +42,7 @@
                                     class="text-green-700">
                                     <i class="fa-solid fa-user-check"></i>
                                 </a>
-                                <a href="" class="text-red-700">
+                                <a href="{{ route('Reject.VisaApplication', ['id' => $record->id]) }}" class="text-red-700">
                                     <i class="fa-solid fa-ban"></i>
                                 </a>
                             </td>

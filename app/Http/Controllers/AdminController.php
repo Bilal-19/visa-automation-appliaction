@@ -28,13 +28,18 @@ class AdminController extends Controller
         return view("Admin.VisaApplicants", with(compact("fetchApplicants")));
     }
 
-    public function approvedVisaApplication($id)
+    public function getApplicationStatus($id)
     {
-        // Check if the application is already improved or not.
         $findRecord = DB::table("applicants")->
             where("id", "=", $id)->
             first();
         $applicantStatus = $findRecord->status;
+        return $applicantStatus;
+    }
+
+    public function approvedVisaApplication($id)
+    {
+        $applicantStatus = $this->getApplicationStatus($id);
 
         if ($applicantStatus !== 'approved') {
             $update = DB::table("applicants")->
@@ -48,6 +53,26 @@ class AdminController extends Controller
             }
         } else {
             toastr()->info("Visa already approved.");
+        }
+        return redirect()->back();
+    }
+
+    public function rejectVisaApplication($id)
+    {
+        $applicantStatus = $this->getApplicationStatus($id);
+
+        if ($applicantStatus !== 'rejected') {
+            $update = DB::table("applicants")->
+                where("id", "=", $id)->
+                update([
+                    "status" => "rejected",
+                    "updated_at" => now()
+                ]);
+            if ($update) {
+                toastr()->success("Visa of selected applicant is rejected.");
+            }
+        } else {
+            toastr()->info("Visa already been rejected.");
         }
         return redirect()->back();
     }
