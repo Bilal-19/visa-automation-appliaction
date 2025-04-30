@@ -30,15 +30,25 @@ class AdminController extends Controller
 
     public function approvedVisaApplication($id)
     {
-        $update = DB::table("applicants")->
+        // Check if the application is already improved or not.
+        $findRecord = DB::table("applicants")->
             where("id", "=", $id)->
-            update([
-                "status" => "approved",
-                "updated_at" => now()
-            ]);
-        if ($update) {
-            toastr()->success("Visa of selected applicant is approved.");
-            return redirect()->back();
+            first();
+        $applicantStatus = $findRecord->status;
+
+        if ($applicantStatus !== 'approved') {
+            $update = DB::table("applicants")->
+                where("id", "=", $id)->
+                update([
+                    "status" => "approved",
+                    "updated_at" => now()
+                ]);
+            if ($update) {
+                toastr()->success("Visa of selected applicant is approved.");
+            }
+        } else {
+            toastr()->info("Visa already approved.");
         }
+        return redirect()->back();
     }
 }
