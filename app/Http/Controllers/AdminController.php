@@ -127,4 +127,9 @@ class AdminController extends Controller
         }
         return view("Admin.CustomerQueries", with(compact("fetchEnquiries")));
     }
+
+    public function registeredUser(){
+        $fetchUsers = DB::table("users")->paginate(10);
+        return view("Admin.RegisteredUser", with(compact("fetchUsers")));
+    }
 }

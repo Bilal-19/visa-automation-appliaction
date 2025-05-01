@@ -54,8 +54,8 @@
                     <i class="fa-solid fa-house"></i>
                     <span class="inline">Dashboard</span>
                 </a>
-                <a href="#"
-                    class="flex items-center space-x-2 px-4 py-2 border-b {{ request()->routeIs('#') ? 'bg-white text-black rounded hover:bg-gray-200' : 'text-white' }}">
+                <a href="{{route('Users')}}"
+                    class="flex items-center space-x-2 px-4 py-2 border-b {{ request()->routeIs('Users') ? 'bg-white text-black rounded hover:bg-gray-200' : 'text-white' }}">
                     <i class="fa-solid fa-users"></i>
                     <span class="inline">Registered Users</span>
                 </a>
