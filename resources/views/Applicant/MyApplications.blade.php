@@ -16,20 +16,29 @@
                 <tr class="border-b text-sm">
                     <td class="p-2 font-light">{{ $record->id }}</td>
                     <td class="p-2 font-light">
-                        <img src="{{asset('Applicants/Profile/'.$record->profilePicture)}}" alt="{{$record->fullName}}" class="h-12">
+                        <img src="{{ asset('Applicants/Profile/' . $record->profilePicture) }}" alt="{{ $record->fullName }}"
+                            class="h-12">
                     </td>
                     <td class="p-2 font-light">{{ $record->fullName }}</td>
                     <td class="p-2 font-light text-center">
-                        {{ date("M d, Y", strtotime($record->passportIssueDate)) }}
+                        {{ date('M d, Y', strtotime($record->passportIssueDate)) }}
                         to
-                        {{ date("M d, Y", strtotime($record->passportDateExpiry)) }}
+                        {{ date('M d, Y', strtotime($record->passportDateExpiry)) }}
                     </td>
                     <td class="p-2 font-light text-center">
-                        {{ date("d-M-Y", strtotime($record->created_at)) }}
+                        {{ date('d-M-Y', strtotime($record->created_at)) }}
                         at
-                        {{ date("h:i a", strtotime($record->created_at)) }}
+                        {{ date('h:i a', strtotime($record->created_at)) }}
                     </td>
-                    <td class="p-2 font-light">{{ $record->status }}</td>
+                    <td class="p-2 font-light">
+                        @if ($record->status == 'approved')
+                            <span class="bg-green-800 text-white px-2 rounded-md">Approved</span>
+                        @elseif ($record->status == 'rejected')
+                            <span class="bg-red-800 text-white px-2 rounded-md">Rejected</span>
+                        @else
+                            <span class="bg-orange-800 text-white px-2 rounded-md">Pending</span>
+                        @endif
+                    </td>
                 </tr>
             @endforeach
         </table>

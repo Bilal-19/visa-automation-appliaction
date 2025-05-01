@@ -65,7 +65,7 @@ class ApplicantController extends Controller
         if (Auth::check()) {
             $fetchApplications = DB::table("applicants")->
                 where("userID", "=", Auth::user()->id)->
-                get();
+                limit(10)->get();
             return view("Applicant.MyApplications", with(compact('fetchApplications')));
         } else {
             return view("Authentication.login");
