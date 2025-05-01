@@ -156,4 +156,17 @@ class AdminController extends Controller
         }
         return redirect()->back();
     }
+
+    public function deleteAccount($id)
+    {
+        $isDeleted = DB::table('users')->
+            where('id', '=', $id)->
+            delete();
+        if ($isDeleted){
+            toastr()->success("Account deleted successfully.");
+        } else {
+            toastr()->info("Something went wrong. Please try again later.");
+        }
+        return redirect()->back();
+    }
 }

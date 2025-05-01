@@ -30,8 +30,8 @@
                             <td class="p-3 text-center space-x-3">
                                 <a href="{{ route('ResetPassword', ['id' => $record->id]) }}" class="text-blue-800"
                                     title="Reset Password"><i class="fa-solid fa-key"></i></a>
-                                <a href="" class="text-red-800" title="Delete Account"><i
-                                        class="fa-solid fa-trash"></i></a>
+                                <a href="{{ route('DeleteAccount', ['id' => $record->id]) }}" class="text-red-800"
+                                    title="Delete Account"><i class="fa-solid fa-trash"></i></a>
                             </td>
                         </tr>
                     @endforeach

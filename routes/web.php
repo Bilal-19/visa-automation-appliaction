@@ -39,5 +39,6 @@ Route::controller(AdminController::class)->group(
         Route::get("/approve-visa-applicantion/{id}", "approvedVisaApplication")->name("Aproved.VisaApplication");
         Route::get("/reject-visa-applicantion/{id}", "rejectVisaApplication")->name("Reject.VisaApplication");
         Route::get("/reset-password/{id}", "resetPassword")->name("ResetPassword");
+        Route::get("/delete-account/{id}", "deleteAccount")->name("DeleteAccount");
     }
 );
