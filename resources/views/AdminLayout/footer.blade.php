@@ -1,5 +1,3 @@
-
-
 <script>
     const sidebar = document.getElementById('sidebar');
     const menuBtn = document.getElementById('menu-btn');
@@ -8,7 +6,7 @@
         sidebar.classList.toggle('-translate-x-full');
     });
 </script>
-@stack("script")
+@stack('script')
 </body>
 
 </html>
