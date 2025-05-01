@@ -79,7 +79,7 @@
                     <i class="fa-solid fa-question"></i>
                     <span class="inline">Customer Enquiries</span>
                 </a>
-                <a href="#"
+                <a href="{{route('logOut')}}"
                     class="flex items-center space-x-2 px-4 py-2 border-b {{ request()->routeIs('#') ? 'bg-white text-black rounded hover:bg-gray-200' : 'text-white' }}">
                     <i class="fa-solid fa-right-from-bracket"></i>
                     <span class="inline">Log Out</span>

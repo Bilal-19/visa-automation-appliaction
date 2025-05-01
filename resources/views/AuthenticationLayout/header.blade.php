@@ -28,12 +28,5 @@
         h6 {
             font-family: "Montserrat", sans-serif;
         }
-
-        label{
-            color: white;
-        }
-        input{
-            color:black;
-        }
     </style>
 </head>
