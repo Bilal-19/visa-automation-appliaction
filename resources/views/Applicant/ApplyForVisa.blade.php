@@ -182,6 +182,6 @@
             </div>
         </div>
 
-        <button class="my-5 text-white bg-black px-3 py-1 rounded-md cursor-pointer">Submit Application</button>
+        <button class="my-5 text-white bg-black px-3 py-1 rounded-md cursor-pointer"><i class="fa-solid fa-paper-plane"></i> Submit Application</button>
     </form>
 @endsection

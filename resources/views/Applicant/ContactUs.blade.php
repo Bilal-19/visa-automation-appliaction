@@ -13,7 +13,7 @@
                     class="text-sm border-x-1 border-t-1 border-b-4 border-gray-700 w-full my-3 px-3 py-2 rounded-md focus:outline-none">
                 <textarea rows="5" name="userMessage" placeholder="Enter your message"
                     class="text-sm border-x-1 border-t-1 border-b-4 border-gray-700 w-full my-3 px-3 py-2 rounded-md focus:outline-none resize-none"></textarea>
-                <button class="text-white bg-gray-900 px-3 py-2 rounded-md w-full cursor-pointer">Send Message</button>
+                <button class="text-white bg-gray-900 px-3 py-2 rounded-md w-full cursor-pointer"><i class="fa-solid fa-paper-plane"></i> Send Message</button>
             </form>
         </div>
     </div>
