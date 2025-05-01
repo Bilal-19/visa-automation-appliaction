@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use Hash;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 
@@ -128,8 +129,31 @@ class AdminController extends Controller
         return view("Admin.CustomerQueries", with(compact("fetchEnquiries")));
     }
 
-    public function registeredUser(){
-        $fetchUsers = DB::table("users")->paginate(10);
+    public function registeredUser(Request $request)
+    {
+        if ($request->search) {
+            $fetchUsers = DB::table("users")->
+                where("name", "like", "%$request->search%")->
+                orWhere("email", "like", "%$request->search%")->
+                paginate(10);
+        } else {
+            $fetchUsers = DB::table("users")->paginate(10);
+        }
         return view("Admin.RegisteredUser", with(compact("fetchUsers")));
+    }
+
+    public function resetPassword($id)
+    {
+        $isReset = DB::table('users')->update([
+            "password" => Hash::make("12345678"),
+            "updated_at" => now()
+        ]);
+
+        if ($isReset) {
+            toastr()->success("Password reset successfully.");
+        } else {
+            toastr()->info("Something went wrong. Please try again later.");
+        }
+        return redirect()->back();
     }
 }

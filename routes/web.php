@@ -38,5 +38,6 @@ Route::controller(AdminController::class)->group(
         Route::get("/customer-enquiries", "getCustomerEnquiries")->name("Customer.Enquiries");
         Route::get("/approve-visa-applicantion/{id}", "approvedVisaApplication")->name("Aproved.VisaApplication");
         Route::get("/reject-visa-applicantion/{id}", "rejectVisaApplication")->name("Reject.VisaApplication");
+        Route::get("/reset-password/{id}", "resetPassword")->name("ResetPassword");
     }
 );
